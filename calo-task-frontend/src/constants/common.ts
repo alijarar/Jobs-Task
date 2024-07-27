@@ -1,0 +1,1 @@
+export const JOBS_BACKEND_URL = import.meta.env.VITE_JOBS_BACKEND_URL

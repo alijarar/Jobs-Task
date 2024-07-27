@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "title": "Prepare a gourmet meal",
+    "description": "Prepare a delicious gourmet meal using fresh ingredients.",
+    "category": "food"
+  },
+  {
+    "id": "2",
+    "title": "Bake a cake",
+    "description": "Bake a mouth-watering cake with layers of chocolate and cream.",
+    "category": "food"
+  },
+  {
+    "id": "3",
+    "title": "Make homemade pizza",
+    "description": "Create a homemade pizza with your favorite toppings.",
+    "category": "food"
+  }
+]
