@@ -28,7 +28,7 @@ const useGetJobs = () =>
   };
   
   const useGetJobById = (jobId: string) =>
-      useQuery(
+      useQuery<Job, any>(
         ['JobById', jobId],
         () => jobService.fetchJobById(jobId),
         { retry: false, refetchOnWindowFocus: false }

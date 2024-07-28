@@ -71,11 +71,12 @@ export function CreateJobDialog({ refetch }: DialogProps) {
 
   useEffect(() => {
     if (isSuccess) {
-      toast({ title: "Success", description: "Job created successfully!" });
+      toast({ title: "Success", description: "Job created successfully!", duration: 3000 });
     } else if (isError) {
       toast({
         variant: "destructive",
         description: "Failed to create job. Please try again.",
+        duration: 3000
       });
     }
   }, [isSuccess,isError])

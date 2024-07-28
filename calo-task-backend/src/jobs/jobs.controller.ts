@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Param, Body } from '@nestjs/common';
+import { Controller, Get, Post, Param, Body, InternalServerErrorException, NotFoundException } from '@nestjs/common';
 import { JobsService } from './jobs.service';
 import { CreateJobDto } from './dto/create-job.dto';
 
@@ -10,17 +10,29 @@ export class JobsController {
 
   @Get()
   async getJobs() {
-    return this.jobsService.getJobs();
+    try {
+      return await this.jobsService.getJobs();
+    } catch (error) {
+      throw new InternalServerErrorException('Failed to fetch jobs');
+    }
   }
 
   @Post()
   async createJob(@Body() createJobDto: CreateJobDto) {
-    const jobResult = await this.jobsService.createJob(createJobDto);
-    return jobResult;
+    try {
+      const jobResult = await this.jobsService.createJob(createJobDto);
+      return jobResult;
+    } catch (error) {
+      throw new InternalServerErrorException('Failed to create job');
+    }
   }
 
   @Get(':jobId')
   async getJobById(@Param('jobId') jobId: string) {
-    return this.jobsService.getJobById(jobId);
+      const job = await this.jobsService.getJobById(jobId);
+      if (!job) {
+        throw new NotFoundException(`Job with id ${jobId} not found`);
+      }
+      return job
   }
 }

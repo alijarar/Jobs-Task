@@ -2,9 +2,12 @@ import { Injectable } from '@nestjs/common';
 import { promises as fs } from 'fs';
 import * as path from 'path';
 import { CreateJobDto } from './dto/create-job.dto';
+import axios from 'axios';
 
 // Update the path to the db.json file
 const JOBS_FILE = path.resolve(process.cwd(), 'src/database/db.json');
+const UNSPLASH_API_URL = 'https://api.unsplash.com/photos/random';
+const UNSPLASH_API_KEY = 'qj7POLUxIXV0DCGOXzrozn9dWjZgijkF0ht-1rLm40A';
 
 @Injectable()
 export class JobsService {
@@ -20,17 +23,41 @@ export class JobsService {
     }
   }
 
+
   async getJobById(jobId: string): Promise<any> {
     const jobs = await this.getJobs();
-    return jobs.find(job => job.id === jobId);
+    const findJob = jobs.find(job => job.id === jobId);
+
+    return findJob;
   }
 
-  async createJob (jobData: any): Promise<void> {
+  private async fetchRandomImage(catergory:string): Promise<{ blurhash: string, imageUrl: string }> {
     try {
+      const response = await axios.get(UNSPLASH_API_URL, {
+        params: {
+          query: catergory
+        },
+        headers: {
+          Authorization: `Client-ID ${UNSPLASH_API_KEY}`,
+        },
+      });
+      const imageUrl = response.data.urls.regular;
+      const blurhash = response.data.blur_hash;
+      return { blurhash, imageUrl };
+    } catch (error) {
+      console.error('Error fetching image from Unsplash:', error);
+      throw new Error('Failed to fetch image');
+    }
+  }
+
+  async createJob (jobData: CreateJobDto): Promise<void> {
+    try {
+      const { blurhash, imageUrl } = await this.fetchRandomImage(jobData.category);
       const jobs = await this.getJobs();
       jobs.push({
-        id:(jobs.length + 1).toString(),
+        id: (jobs.length + 1).toString(),
         ...jobData,
+        imageData: { blurhash, imageUrl },
       });
       await fs.writeFile(JOBS_FILE, JSON.stringify(jobs, null, 2));
     } catch (error) {

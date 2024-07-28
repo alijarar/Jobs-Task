@@ -3,7 +3,10 @@ export interface Job {
     title: string;
     description: string;
     category: string;
-    imageUrl?:string
+  imageData?: {
+    blurhash: string,
+    imageUrl: string,
+  }
 }
   
 export interface DialogProps {

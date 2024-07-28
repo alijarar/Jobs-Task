@@ -6,11 +6,12 @@ import useDebounce from "./hooks/useDebounce";
 import { CreateJobDialog } from "./components/dialog";
 import JobCard from "./components/jobCard";
 import { Toaster } from "./components/ui/toaster";
+import { useToast } from "./components/ui/use-toast";
 
 function App() {
-  const [images, setImages] = useState<string[]>([]);
   const [inputValue, setInputValue] = useState("");
   const debouncedValue = useDebounce(inputValue, 500);
+  const { toast } = useToast();
 
   const {
     isLoading: isJobsLoading,
@@ -21,38 +22,21 @@ function App() {
 
   const {
     data: jobById,
+    isError: isErrorGetJobById,
+    error: errorResponse,
   } = useGetJobById(debouncedValue);
 
   useEffect(() => {
-    // Fetch images only if jobsData is defined and not empty
-    const fetchImages = async () => {
-      if (!jobsData || jobsData.length === 0) {
-        return;
-      }
-
-      try {
-        const imageUrls = await Promise.all(
-          Array.from(
-            { length: jobsData.length },
-            (_, i) =>
-              fetch(`https://picsum.photos/200/300?random=${i + 1}`).then(
-                (response) => response.url
-              ) // Get the image URL
-          )
-        );
-        setImages(imageUrls);
-      } catch (error) {
-        console.error("Error fetching images:", error);
-      }
-    };
-
-    fetchImages();
-  }, [jobsData]);
-
-  const getImageUrl = (jobId: string) => {
-    const index = parseInt(jobId, 10) % images.length;
-    return images[index] || "";
-  };
+    if (isErrorGetJobById && errorResponse) {
+      const axiosError = errorResponse;
+      const errorMessage = axiosError.response?.data?.message || 'No Job Found';
+      toast({
+        variant: "destructive",
+        description: errorMessage,
+        duration: 5000,
+      });
+    }
+  }, [isErrorGetJobById, errorResponse, toast]);
 
   if (isJobsLoading) {
     return <div>Loading...</div>;
@@ -83,10 +67,7 @@ function App() {
       </div>
       <div className="p-4 grid gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
         {displayedJobs.map((job) => (
-          <JobCard
-            key={job.id}
-            job={{ ...job, imageUrl: getImageUrl(job?.id) }}
-          />
+          <JobCard key={job.id} job={{ ...job }} />
         ))}
       </div>
       <Toaster />
