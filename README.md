@@ -59,7 +59,7 @@ To enable image fetching functionality in this project, you'll need to create an
 2. Add the following line to the `.env` file, replacing `your-access-key` with the **Access Key** you obtained from Unsplash:
 
     ```env
-    UNSPLASH_API_KEY=qj7POLUxIXV0DCGOXzrozn9dWjZgijkF0ht-1rLm40A (you can use this but 50 API calls per hour are allowed )
+    UNSPLASH_API_KEY=your-access-key
     ```
 
 Please note that with a demo account, you can make up to 50 API calls per hour for fetching images.
