@@ -110,6 +110,73 @@ Open New terminal for frontend
    ````
 
 
+   ## Project Breakdown and Time Estimate
+1. Backend Service Setup (Total: 7 hours 45 minutes)
+* Initial Setup and Configuration (2 hours)
+    * Set up project structure
+    * Install necessary dependencies (Nest.js, local file DB structure)
+    * Configure the server
+* Creating Endpoints (5 hours 45 minutes)
+    * POST /jobs (2 hours)
+        * Implement endpoint to create a new job
+        * Integrate Unsplash API
+        * Return job ID to the client
+    * GET /jobs (1 hour)
+        * Implement endpoint to return a list of jobs
+        * Show resolved jobs with results and unresolved jobs with status
+    * GET /jobs/{jobId} (45 minutes)
+        * Implement endpoint to return a specific job's result or status by ID
+    * Error Handling (45 minutes)
+        * Implement error handling for the endpoints
+* Testing and Debugging (2 hours)
+    * Test all endpoints
+    * Ensure functionality and debug any issues
+2. Client Setup (Total: 10 hours)
+* Initial Setup and Configuration (1 hour 30 minutes)
+    * Set up project structure
+    * Install necessary dependencies (React, Axios, Tailwind CSS, Shadcn UI, etc.)
+    * Configure the client
+* Creating Components (2 hours)
+    * Job Card Component (30 minutes)
+        * Implement component to display the list of jobs
+    * Job Creation Dialog Component (1 hour)
+        * Implement component to create a new job
+* Integrating API Calls (3 hours)
+    * Fetch job data
+    * Create new jobs
+    * Display job results as soon as they are resolved
+* Service Setup with Axios and React Query (2 hours)
+    * Implement service code using Axios and React Query with hooks
+* Form Validation for Creating New Jobs (30 minutes)
+    * Implement form validation
+* Testing and Debugging (2 hours)
+    * Test all components
+    * Ensure functionality and debug any issues
+3. README File (Total: 1 hour 15 minutes)
+* Writing Setup Instructions (45 minutes)
+    * Detail steps to set up backend and client projects
+    * Include installation of dependencies and configuration steps
+* Documenting Usage Instructions (30 minutes)
+    * Explain usage of endpoints
+    * Instructions for creating new jobs, fetching job data, and displaying job results on the client
+4. Final Review and Adjustments (Total: 3 hours)
+* Code Review and Refactoring (1 hour 30 minutes)
+    * Review entire codebase for improvements
+    * Refactor where necessary
+    * Ensure code quality and consistency
+* Final Testing (1 hour 30 minutes)
+    * Conduct final round of testing
+    * Ensure backend service and client functionality work as expected
+Total Estimated Time: 23 hours 15 minutes
+
+
+
+
+
+
+
+
+
 
 
 
