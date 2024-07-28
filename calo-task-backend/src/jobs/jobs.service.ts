@@ -3,11 +3,11 @@ import { promises as fs } from 'fs';
 import * as path from 'path';
 import { CreateJobDto } from './dto/create-job.dto';
 import axios from 'axios';
+import {ConfigService} from '@nestjs/config'
 
 // Update the path to the db.json file
 const JOBS_FILE = path.resolve(process.cwd(), 'src/database/db.json');
 const UNSPLASH_API_URL = 'https://api.unsplash.com/photos/random';
-const UNSPLASH_API_KEY = 'qj7POLUxIXV0DCGOXzrozn9dWjZgijkF0ht-1rLm40A';
 
 @Injectable()
 export class JobsService {
@@ -38,7 +38,7 @@ export class JobsService {
           query: catergory
         },
         headers: {
-          Authorization: `Client-ID ${UNSPLASH_API_KEY}`,
+          Authorization: `Client-ID ${process.env.UNSPLASH_API_KEY}`,
         },
       });
       const imageUrl = response.data.urls.regular;
