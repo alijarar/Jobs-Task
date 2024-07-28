@@ -1,20 +1,128 @@
 [
   {
     "id": "1",
-    "title": "Prepare a gourmet meal",
-    "description": "Prepare a delicious gourmet meal using fresh ingredients.",
-    "category": "food"
+    "title": "Go on a nature hike",
+    "description": "Explore the outdoors on a scenic and invigorating nature hike.",
+    "category": "nature"
   },
   {
     "id": "2",
-    "title": "Bake a cake",
-    "description": "Bake a mouth-watering cake with layers of chocolate and cream.",
-    "category": "food"
+    "title": "Identify local wildlife",
+    "description": "Learn about and identify various species of wildlife in your area.",
+    "category": "nature"
   },
   {
     "id": "3",
-    "title": "Make homemade pizza",
-    "description": "Create a homemade pizza with your favorite toppings.",
-    "category": "food"
+    "title": "Create a wildlife habitat",
+    "description": "Design and set up a habitat that supports local wildlife and plants.",
+    "category": "nature"
+  },
+  {
+    "id": "4",
+    "title": "Plant a tree",
+    "description": "Participate in tree planting activities to contribute to environmental conservation.",
+    "category": "nature"
+  },
+  {
+    "id": "5",
+    "title": "Document a nature journal",
+    "description": "Keep a journal documenting observations and experiences in natural settings.",
+    "category": "nature"
+  },
+  {
+    "id": "6",
+    "title": "Learn about birdwatching",
+    "description": "Study techniques and tools for birdwatching and identify local bird species.",
+    "category": "nature"
+  },
+  {
+    "id": "7",
+    "title": "Create a nature-themed artwork",
+    "description": "Design and create artwork inspired by natural landscapes and wildlife.",
+    "category": "nature"
+  },
+  {
+    "id": "8",
+    "title": "Set up a nature observation station",
+    "description": "Build a station for observing and recording natural phenomena in your area.",
+    "category": "nature"
+  },
+  {
+    "id": "9",
+    "title": "Participate in a beach cleanup",
+    "description": "Join efforts to clean up beaches and coastal areas to protect marine life.",
+    "category": "nature"
+  },
+  {
+    "id": "10",
+    "title": "Create a butterfly garden",
+    "description": "Design a garden with plants that attract and support butterfly populations.",
+    "category": "nature"
+  },
+  {
+    "id": "11",
+    "title": "Build a compost bin",
+    "description": "Construct a compost bin to recycle organic waste and enrich soil.",
+    "category": "nature"
+  },
+  {
+    "id": "12",
+    "title": "Participate in a tree-planting event",
+    "description": "Join community efforts to plant trees and enhance local green spaces.",
+    "category": "nature"
+  },
+  {
+    "id": "13",
+    "title": "Explore a local nature reserve",
+    "description": "Visit and learn about the natural ecosystems preserved in a local reserve.",
+    "category": "nature"
+  },
+  {
+    "id": "14",
+    "title": "Build a rain garden",
+    "description": "Create a garden designed to capture and filter rainwater runoff.",
+    "category": "nature"
+  },
+  {
+    "id": "15",
+    "title": "Start a community garden",
+    "description": "Organize and manage a community garden project to grow vegetables and herbs.",
+    "category": "nature"
+  },
+  {
+    "id": "16",
+    "title": "Learn about sustainable living",
+    "description": "Study and implement practices to reduce environmental impact and live sustainably.",
+    "category": "nature"
+  },
+  {
+    "id": "17",
+    "title": "Participate in wildlife tracking",
+    "description": "Join activities to track and monitor wildlife populations in your area.",
+    "category": "nature"
+  },
+  {
+    "id": "18",
+    "title": "Create a nature-themed photo album",
+    "description": "Compile and organize photographs of natural landscapes and wildlife.",
+    "category": "nature"
+  },
+  {
+    "id": "19",
+    "title": "Engage in eco-friendly crafts",
+    "description": "Make crafts using recycled or natural materials to promote environmental awareness.",
+    "category": "nature"
+  },
+  {
+    "id": "20",
+    "title": "Observe seasonal changes",
+    "description": "Document and study the changes in nature throughout the different seasons.",
+    "category": "nature"
+  },
+  {
+    "id": "21",
+    "title": "afadsfasd",
+    "category": "asafasdsaf",
+    "description": "afsadsafasdafaf"
   }
 ]

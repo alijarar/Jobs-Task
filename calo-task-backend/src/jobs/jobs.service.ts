@@ -20,18 +20,12 @@ export class JobsService {
     }
   }
 
-  async createJob(jobData: CreateJobDto): Promise<void> {
-    const jobs = await this.getJobs();
-    jobs.push(jobData);
-    await fs.writeFile(JOBS_FILE, JSON.stringify(jobs, null, 2));
-  }
-
   async getJobById(jobId: string): Promise<any> {
     const jobs = await this.getJobs();
     return jobs.find(job => job.id === jobId);
   }
 
-  async saveJobResult(jobData: any): Promise<void> {
+  async createJob (jobData: any): Promise<void> {
     try {
       const jobs = await this.getJobs();
       jobs.push({

@@ -16,7 +16,6 @@ export class JobsController {
   @Post()
   async createJob(@Body() createJobDto: CreateJobDto) {
     const jobResult = await this.jobsService.createJob(createJobDto);
-    this.jobsService.saveJobResult(jobResult);
     return jobResult;
   }
 
