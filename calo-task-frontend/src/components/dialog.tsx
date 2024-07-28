@@ -25,6 +25,7 @@ import { useCreateJob } from "@/hooks/useJobs";
 import { useEffect, useState } from "react";
 import { DialogProps } from "@/@types/types";
 import { useToast } from "./ui/use-toast";
+import Loading from "./loading";
 
 const formSchema = z.object({
   title: z.string().min(2, {
@@ -46,6 +47,7 @@ export function CreateJobDialog({ refetch }: DialogProps) {
   const {
     isSuccess,
     isError,
+    isLoading,
     mutateAsync: createJobMutation,
   } = useCreateJob();
 
@@ -79,7 +81,11 @@ export function CreateJobDialog({ refetch }: DialogProps) {
         duration: 3000
       });
     }
-  }, [isSuccess,isError])
+  }, [isSuccess, isError])
+  
+  if (isLoading) {
+    return <Loading />
+  }
   
 
   return (

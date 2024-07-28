@@ -10,7 +10,7 @@ const useGetJobs = () =>
     useQuery(
       ['Jobs'],
       () => jobService.fetchJobs(),
-      { retry: false, refetchOnWindowFocus: false, keepPreviousData: true }
+      { retry: 2, refetchOnWindowFocus: true, keepPreviousData: true }
   );
     
   const useCreateJob = () => {
@@ -31,7 +31,7 @@ const useGetJobs = () =>
       useQuery<Job, any>(
         ['JobById', jobId],
         () => jobService.fetchJobById(jobId),
-        { retry: false, refetchOnWindowFocus: false }
+        { retry: 2, refetchOnWindowFocus: true }
       );
 
 export {

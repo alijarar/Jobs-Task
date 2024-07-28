@@ -7,6 +7,7 @@ import { CreateJobDialog } from "./components/dialog";
 import JobCard from "./components/jobCard";
 import { Toaster } from "./components/ui/toaster";
 import { useToast } from "./components/ui/use-toast";
+import Loading from "./components/loading";
 
 function App() {
   const [inputValue, setInputValue] = useState("");
@@ -39,7 +40,7 @@ function App() {
   }, [isErrorGetJobById, errorResponse, toast]);
 
   if (isJobsLoading) {
-    return <div>Loading...</div>;
+    return <Loading />
   }
 
   if (!isJobsSuccess || !jobsData) {
