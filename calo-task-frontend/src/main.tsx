@@ -6,11 +6,14 @@ import {
   QueryClient,
   QueryClientProvider,
 } from "react-query";
+import ErrorBoundary from "./ErrorBoundary.tsx";
 
 const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <QueryClientProvider client={queryClient}>
-    <App />
+    <ErrorBoundary>
+      <App />
+    </ErrorBoundary>
   </QueryClientProvider>
 );
