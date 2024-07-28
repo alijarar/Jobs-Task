@@ -50,16 +50,18 @@ export class JobsService {
     }
   }
 
-  async createJob (jobData: CreateJobDto): Promise<void> {
+  async createJob (jobData: CreateJobDto){
     try {
       const { blurhash, imageUrl } = await this.fetchRandomImage(jobData.category);
       const jobs = await this.getJobs();
-      jobs.push({
+      const newJobObj = {
         id: (jobs.length + 1).toString(),
         ...jobData,
         imageData: { blurhash, imageUrl },
-      });
+      }
+      jobs.push(newJobObj);
       await fs.writeFile(JOBS_FILE, JSON.stringify(jobs, null, 2));
+      return newJobObj
     } catch (error) {
       console.error('Error saving job:', error);
     }
