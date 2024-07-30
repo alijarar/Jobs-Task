@@ -8,6 +8,7 @@ import JobCard from "./components/jobCard";
 import { Toaster } from "./components/ui/toaster";
 import { useToast } from "./components/ui/use-toast";
 import Loading from "./components/loading";
+import usePolling from "./hooks/usePolling";
 
 function App() {
   const [inputValue, setInputValue] = useState("");
@@ -26,6 +27,8 @@ function App() {
     isError: isErrorGetJobById,
     error: errorResponse,
   } = useGetJobById(debouncedValue);
+
+  usePolling(refetch, 5000);
 
   useEffect(() => {
     if (isErrorGetJobById && errorResponse) {
