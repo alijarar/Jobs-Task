@@ -2,6 +2,9 @@
 
 This repository contains the frontend and backend code for the Jobs Task project. The frontend is built with React.js, and the backend is built with Nest.js.
 
+## Project Video Demo
+https://drive.google.com/file/d/1xS4DgSNwfiM95rQh9OVhemZiBvUPiNMs/view?usp=sharing
+
 ## Prerequisites
 
 Before running this project, ensure you have the following installed:
@@ -110,6 +113,9 @@ Open New terminal for frontend
    ````
 
 
+
+
+
    ## Project Breakdown and Time Estimate
 1. Backend Service Setup (Total: 7 hours 45 minutes)
 * Initial Setup and Configuration (2 hours)
@@ -167,7 +173,8 @@ Open New terminal for frontend
 * Final Testing (1 hour 30 minutes)
     * Conduct final round of testing
     * Ensure backend service and client functionality work as expected
-Total Estimated Time: 23 hours 15 minutes
+
+* Total Estimated Time: 23 hours 15 minutes
 
 
 
@@ -186,9 +193,6 @@ Total Estimated Time: 23 hours 15 minutes
 ## Notes
 Ensure both frontend and backend servers are running simultaneously to allow the frontend to communicate with the backend.
 
-
-## Troubleshooting
-If you encounter any issues, check the logs for error messages and ensure all dependencies are installed correctly. Make sure your .env files are configured properly.
 
 
 
